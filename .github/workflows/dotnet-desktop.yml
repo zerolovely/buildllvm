@@ -17,13 +17,13 @@ jobs:
       uses: microsoft/setup-msbuild@v1.3.1
     - name: get src
       run: |
-        git clone https://github.com/llvm/llvm-project.git -b release/17.x --depth 1
+        git clone https://github.com/llvm/llvm-project.git -b release/17.x
         cd llvm-project
         cmake -S llvm -B build -DLLVM_ENABLE_PROJECTS=clang -DLLVM_TARGETS_TO_BUILD=X86
     - name: Build solution
       working-directory: ./llvm-project
       run: |
-        msbuild /p:Configuration=MiniSizeRel build/LLVM.sln
+        msbuild /p:Configuration=Release /p:Platform="Any CPU" build/LLVM.sln
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.0.0
