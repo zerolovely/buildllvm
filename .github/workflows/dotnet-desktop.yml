@@ -30,6 +30,6 @@ jobs:
       with:
         # Artifact name
         name: clang
-        path: ./llvm-project/build
+        path: ./llvm-project/build/Release
 
           
