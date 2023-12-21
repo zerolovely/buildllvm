@@ -23,7 +23,7 @@ jobs:
     - name: Build solution
       working-directory: ./llvm-project
       run: |
-        msbuild /p:Configuration=Release /p:Platform="Any CPU" build/LLVM.sln
+        msbuild /p:Configuration=Release build/LLVM.sln
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.0.0
